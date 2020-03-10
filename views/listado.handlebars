@@ -1,0 +1,23 @@
+<h2>Listado de Emociones</h2>
+<center>
+<a href="/alta" class="btn btn-primary">Agregar Emociones</a>
+</center>
+<br>
+<table class="table">
+    <tr>
+        <th class="bg-success">Nombre</th>
+        <th class="bg-success">Apellido</th>
+        <th class="bg-success">Estado de ánimo</th>
+        <th class="bg-success">Descripción</th>
+    </tr>
+    {{#each listado}}
+        <tr>
+            <td class="bg-primary">{{this.nombre}}</td>
+            <td class="bg-primary">{{this.apellido}}</td>
+            <td class="bg-primary">{{this.estado}}</td>
+            <td class="bg-primary">{{this.description}}</td>
+           <td class="bg-primary" ><a href="/borrar/{{this._id}}" class="btn btn-secondary">Borrar</a></td>
+           <td class="bg-primary" ><a href="/editar/{{this._id}}" class="btn btn-secondary">Modificar</a></td>
+        </tr>
+    {{/each}}
+</table>

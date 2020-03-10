@@ -1,0 +1,40 @@
+{{#if error}}
+<div class="alert alert-danger" role="alert">
+  {{error}}  
+</div>
+{{/if}}
+
+<div class="container">
+    <center>
+        <h2>Estados de Animo</h2>
+    </center>
+
+    <form  method="POST">
+         <div class="form-group">
+        <label for="exampleInputEmail1">Nombre</label>
+        <input type="name" class="form-control" value="{{datos.nombre}}" name="nombre" placeholder="Ingrese Nombre" id="exampleInputEmail1">
+         </div>
+         <div class="form-group">
+        <label for="exampleInputEmail1">Apellido</label>
+        <input type="name" class="form-control" value="{{datos.apellido}}" name="apellido" placeholder="Ingrese Apellido" id="exampleInputEmail1">
+         </div>
+              
+        <div class="est">
+            <label for="exampleInputEmail1">Estado de ánimo</label>
+            <select name="estado" class="custom-select">
+                <option selected>Seleccione</option>
+                <option  value="Feliz">Feliz</option>
+                <option  value="Regular">Regular</option>
+                <option  value="Infeliz">Infeliz</option>
+            </select>
+        </div>          
+        <div class="form-group">
+    <label for="colFormLabel" >Detalle de estado</label>
+    <textarea class="form-control" class=" col-sm-8" name="description" placeholder="Explaya aqui como te sientes"></textarea>
+  </div>
+  <br>
+  <center>
+    <button type="submit" class="btn btn-success center">Enviar</button>
+  </center>
+</form>
+</div>
