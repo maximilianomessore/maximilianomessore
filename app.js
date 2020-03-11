@@ -21,6 +21,7 @@ const EstadoSchema = mongoose.Schema({
     apellido: String,
     estado: String,
     description: String
+    
 
 })
 const EstadoModel = mongoose.model('Estados',EstadoSchema);
