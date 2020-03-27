@@ -7,6 +7,7 @@ app.use(session({secret: 'fds8yksahfkj2389kjfhsdfsdf'}));
 mongoose.Promise = global.Promise;
 app.engine('handlebars', hbs());
 app.set('view engine', 'handlebars');
+app.use(express.static('public'));
 
 async function conectar() {
     await mongoose.connect(
@@ -21,6 +22,7 @@ const EstadoSchema = mongoose.Schema({
     apellido: String,
     estado: String,
     description: String
+    
 
 })
 const EstadoModel = mongoose.model('Estados',EstadoSchema);
@@ -30,9 +32,9 @@ app.get('/alta', function(req, res){
 });
 app.post('/alta', async function(req, res) {
 
-    if (req.body.nombre=='') {
+    if (req.body.nombre==''|| req.body.apellido=='' || req.body.estado=='selected' ) {
         res.render('alta', {
-            error: 'El Nombre es obligatorio',
+            error: 'Complete los campos obligatorios',
             datos: {
                 nombre: req.body.nombre,
                 apellido: req.body.apellido
@@ -65,16 +67,16 @@ app.get('/editar/:id', async function(req, res) {
     var artista = await EstadoModel.findById({
         _id: req.params.id
     }).lean();
-    res.render('alta', {datos:artista});
+    res.render('alta', {datos: artista});
 });
 app.post('/editar/:id', async function(req, res) {
-    if (req.body.nombre=='') {
-        res.redirect('/alta', {
-            error: 'El nombre es obligatorio',
+    if (req.body.nombre==''|| req.body.apellido==''||req.body.estado=='selected' ) {
+        res.render('alta', {
+            error: 'Complete los campos obligatorios',
             datos: {
                 nombre: req.body.nombre,
                 apellido: req.body.apellido
-            }
+                }
         });
         return;
     }
