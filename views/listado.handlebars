@@ -1,23 +1,31 @@
-<h2>Listado de Emociones</h2>
+
+
 <center>
-<a href="/alta" class="btn btn-primary">Agregar Emociones</a>
+    <h2>Listado de Emociones</h2>
 </center>
 <br>
-<table class="table">
-    <tr>
-        <th class="bg-success">Nombre</th>
-        <th class="bg-success">Apellido</th>
-        <th class="bg-success">Estado de ánimo</th>
-        <th class="bg-success">Descripción</th>
-    </tr>
-    {{#each listado}}
+
+<div class="table responsive" >
+    <table class="table table-bordered table-dark">
         <tr>
-            <td class="bg-primary">{{this.nombre}}</td>
-            <td class="bg-primary">{{this.apellido}}</td>
-            <td class="bg-primary">{{this.estado}}</td>
-            <td class="bg-primary">{{this.description}}</td>
-           <td class="bg-primary" ><a href="/borrar/{{this._id}}" class="btn btn-secondary">Borrar</a></td>
-           <td class="bg-primary" ><a href="/editar/{{this._id}}" class="btn btn-secondary">Modificar</a></td>
+            <th >Nombre</th>
+            <th >Apellido</th>
+            <th >Estado de ánimo</th>
+            <th >Descripción</th>
         </tr>
-    {{/each}}
-</table>
+        {{#each listado}}
+            <tr>
+                <td>{{this.nombre}}</td>
+                <td >{{this.apellido}}</td>
+                <td>{{this.estado}}</td>
+                <td >{{this.description}}</td>
+                <td  ><a href="/borrar/{{this._id}}" class="btn btn-light">Borrar</a></td>
+                <td ><a href="/editar/{{this._id}}" class="btn btn-light">Modificar</a></td>
+            </tr>
+        {{/each}}
+    </table>
+
+</div>
+<center>
+    <a href="/alta" class="btn btn-dark">Agregar Emociones</a>
+</center>
